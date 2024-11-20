@@ -1,0 +1,15 @@
+{
+    "name": "mi-proyecto-websocket",
+    "version": "1.0.0",
+    "description": "Proyecto para medir distancias con Arduino y almacenarlas en la base de datos.",
+    "main": "servidor.js",
+    "scripts": {
+      "start": "node servidor.js"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "mysql": "^2.18.1",
+      "socket.io": "^4.6.1"
+    }
+  }
+  

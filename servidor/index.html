@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mediciones de Distancia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #distancia {
+      font-size: 2em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Distancia Medida</h1>
+  <p id="distancia">Esperando datos...</p>
+
+  <script>
+    const socket = new WebSocket('ws://localhost:8080');
+
+    socket.onopen = () => {
+      console.log('Conectado al servidor WebSocket');
+    };
+
+    socket.onmessage = (event) => {
+      const distancia = event.data;
+      document.getElementById('distancia').textContent = `Distancia: ${distancia} cm`;
+    };
+
+    socket.onerror = (error) => {
+      console.error('WebSocket Error: ', error);
+    };
+  </script>
+</body>
+</html>
